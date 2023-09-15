@@ -1,0 +1,39 @@
+type HelpingAdded @entity(immutable: true) {
+  id: Bytes!
+  comboId: BigInt! # uint256
+  owner: Bytes! # address
+  usingCredits: Boolean! # bool
+  doubleHelping: Boolean! # bool
+  premium: BigInt! # uint256
+  blockNumber: BigInt!
+  blockTimestamp: BigInt!
+  transactionHash: Bytes!
+}
+
+type HelpingRemoved @entity(immutable: true) {
+  id: Bytes!
+  comboId: BigInt! # uint256
+  owner: Bytes! # address
+  blockNumber: BigInt!
+  blockTimestamp: BigInt!
+  transactionHash: Bytes!
+}
+
+type OwnershipTransferred @entity(immutable: true) {
+  id: Bytes!
+  previousOwner: Bytes! # address
+  newOwner: Bytes! # address
+  blockNumber: BigInt!
+  blockTimestamp: BigInt!
+  transactionHash: Bytes!
+}
+
+type PremiumIncreased @entity(immutable: true) {
+  id: Bytes!
+  comboId: BigInt! # uint256
+  owner: Bytes! # address
+  newPremium: BigInt! # uint256
+  blockNumber: BigInt!
+  blockTimestamp: BigInt!
+  transactionHash: Bytes!
+}

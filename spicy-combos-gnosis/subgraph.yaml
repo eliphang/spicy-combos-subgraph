@@ -1,0 +1,33 @@
+specVersion: 0.0.5
+schema:
+  file: ./schema.graphql
+dataSources:
+  - kind: ethereum
+    name: SpicyCombos
+    network: gnosis
+    source:
+      address: "0xc7981630219452221e26009FFc65A3f42EaA8355"
+      abi: SpicyCombos
+      startBlock: 29979080
+    mapping:
+      kind: ethereum/events
+      apiVersion: 0.0.7
+      language: wasm/assemblyscript
+      entities:
+        - HelpingAdded
+        - HelpingRemoved
+        - OwnershipTransferred
+        - PremiumIncreased
+      abis:
+        - name: SpicyCombos
+          file: ./abis/SpicyCombos.json
+      eventHandlers:
+        - event: HelpingAdded(indexed uint256,indexed address,indexed bool,bool,uint256)
+          handler: handleHelpingAdded
+        - event: HelpingRemoved(indexed uint256,indexed address)
+          handler: handleHelpingRemoved
+        - event: OwnershipTransferred(indexed address,indexed address)
+          handler: handleOwnershipTransferred
+        - event: PremiumIncreased(indexed uint256,indexed address,uint256)
+          handler: handlePremiumIncreased
+      file: ./src/spicy-combos.ts
