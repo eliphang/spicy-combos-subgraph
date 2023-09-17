@@ -1,10 +1,21 @@
 type Helping @entity {
+    "comboId + owner"
     id: Bytes!
     comboId: BigInt!
+    owner: Bytes!
     premium: BigInt!
-    active: Boolean!
     usingCredits: Boolean!
     doubleHelping: Boolean!
-    expiration: BigInt
-    depositsReceived: BigInt!
+    active: Boolean!
+    activeStartBlock: BigInt
+    depositsReceived: Int!
+}
+
+type Score @entity {
+    "eth address"
+    id: Bytes!
+    "number of deposits received"
+    deposits: Int!
+    "total value of deposits received"
+    depositsValue: BigInt!
 }
