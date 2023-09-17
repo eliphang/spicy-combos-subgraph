@@ -7,6 +7,7 @@ type Helping @entity {
     usingCredits: Boolean!
     doubleHelping: Boolean!
     active: Boolean!
+    "the block when this helping became active"
     activeStartBlock: BigInt
     depositsReceived: Int!
 }
@@ -15,7 +16,7 @@ type Score @entity {
     "eth address"
     id: Bytes!
     "number of deposits received"
-    deposits: Int!
+    depositsReceived: Int!
     "total value of deposits received"
     depositsValue: BigInt!
 }
