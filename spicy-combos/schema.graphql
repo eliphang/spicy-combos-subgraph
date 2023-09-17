@@ -3,6 +3,7 @@ type Helping @entity {
     id: Bytes!
     comboId: BigInt!
     owner: Bytes!
+    combo: Combo!
     premium: BigInt!
     usingCredits: Boolean!
     doubleHelping: Boolean!
@@ -10,6 +11,13 @@ type Helping @entity {
     "the block when this helping became active"
     activeStartBlock: BigInt
     depositsReceived: Int!
+}
+
+type Combo @entity(immutable: true) {
+    "Bytes representation of comboId"
+    id: Bytes!
+    comboId: BigInt!
+    helpings: [Helping!]! @derivedFrom(field: "combo")
 }
 
 type Score @entity {
