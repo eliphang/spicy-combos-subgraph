@@ -1,7 +1,10 @@
-type Combo @entity {
-    id: Bytes!
-}
-
 type Helping @entity {
     id: Bytes!
+    comboId: BigInt!
+    premium: BigInt!
+    active: Boolean!
+    usingCredits: Boolean!
+    doubleHelping: Boolean!
+    expiration: BigInt
+    depositsReceived: BigInt!
 }
