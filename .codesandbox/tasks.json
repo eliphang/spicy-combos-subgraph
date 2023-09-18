@@ -3,7 +3,7 @@
   "setupTasks": [
         {
       "name": "graph-cli",
-      "command": "pnpm install -g @graphprotocol/graph-cli"
+      "command": "npm install -g @graphprotocol/graph-cli"
     }
   ],
 
